@@ -16,12 +16,12 @@ public class NewMenuTest {
 	@Autowired
 	private NewMenuDAO newMenuDao;
 	
-	@Test
-	public void addDataTest() {
-//		NewMenu nm1 = new NewMenu("fish","煎",100 , UUID.randomUUID());
-		NewMenu nm2 = new NewMenu(6,"fish","烤",110);
-		newMenuDao.saveAll(Arrays.asList(nm2));
-//		newMenuDao.delete(nm1);//只會刪掉一筆,刪除掉的那一筆不管是第幾筆,都會直接新增下一筆(流水號不回頭)
-	}
+//	@Test
+//	public void addDataTest() {
+////		NewMenu nm1 = new NewMenu("fish","煎",100 , UUID.randomUUID());
+//		NewMenu nm2 = new NewMenu(6,"fish","烤",110);
+//		newMenuDao.saveAll(Arrays.asList(nm2));
+////		newMenuDao.delete(nm1);//只會刪掉一筆,刪除掉的那一筆不管是第幾筆,都會直接新增下一筆(流水號不回頭)
+//	}
 
 }

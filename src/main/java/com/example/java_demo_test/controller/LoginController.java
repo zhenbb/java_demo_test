@@ -12,6 +12,10 @@ import com.example.java_demo_test.service.ifs.LoginService;
 import com.example.java_demo_test.vo.LoginRequest;
 import com.example.java_demo_test.vo.LoginResponse;
 
+import io.swagger.v3.oas.annotations.Hidden;
+
+//import springfox.documentation.annotations.ApiIgnore;
+
 @RestController
 public class LoginController {
 	
@@ -30,6 +34,8 @@ public class LoginController {
 		
 	}
 	
+//	@ApiIgnore
+	@Hidden
 	@PostMapping(value = "loginAccount")
 	public LoginResponse loginAccount(@RequestBody LoginRequest request) {
 		return loginService.loginAccount(request.getLoginAccount());

@@ -13,6 +13,7 @@ import com.example.java_demo_test.entity.Menu;
 import com.example.java_demo_test.entity.PersonInfo;
 import com.example.java_demo_test.respository.PersonInfoDAO;
 import com.example.java_demo_test.service.ifs.PersonInfoService;
+import com.example.java_demo_test.vo.AddPersonInfoRequest;
 import com.example.java_demo_test.vo.GetPersonInfoResponse;
 import com.example.java_demo_test.vo.OrderResponse;
 import com.example.java_demo_test.vo.PersonInfoResponse;
@@ -113,10 +114,28 @@ public class PersonInfoServiceImpl implements PersonInfoService{
 	}
 	
 	
+	//0509課堂練習題
 	
+	@Override
+	public List<PersonInfo> getNothing(String name , String city) {
+		String name1 = StringUtils.hasText(name) ? name : null;
+		String city1 = StringUtils.hasText(city) ? city : null;
+		List<PersonInfo> res = personInfoDao.findNameOrCityRegexp(name1, city1);
+		return res;
+	 }
+
 	
+	@Override
+	public List<PersonInfo> getAll(String name , String city) {
+		boolean hasText = !StringUtils.hasText(name) && !StringUtils.hasText(city);
+		//如果你剛好輸入的條件,NAME跟CITY都沒有東西的話(null沒有值或空的)  hasText會是true
+		String name1 =hasText ? "." : StringUtils.hasText(name) ? name : null;
+		String city1 = hasText ? "." : StringUtils.hasText(city) ? city : null;
+		List<PersonInfo> res = personInfoDao.findNameOrCityRegexp(name1, city1);
+		return res;
+	 }
 	
-	
+
 	
 	
 }
